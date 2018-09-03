@@ -1,0 +1,5 @@
+1.Taksi bilgileri -> 2.Yorum yapma ekraný (done)
+
+3.admin panel (register gibi) (done)
+
+4.user profil -> 5.User Commentleri

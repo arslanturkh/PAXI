@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Administration Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/paxistyle.css">
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    
+	<div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	  
+	  <a class="navbar-brand" href="main.php">
+		<img src="file:///C:/Users/MS%C4%B0/Desktop/Ders/3-spring/ISE307%20-%20IT%20Analysis/HW7/48x48.png" width="30" height="30">
+	   </a>
+	  </div>
+	
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="profile.php">Profile</a></li>
+		<li><a href="favorites.php">Favorites</a></li>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+	
+		<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="taxiform">
+				
+				<h3>Administration Panel</h3>
+				<h5 class="margin">You aren't supposed to be here, I try to fill the database...</h5>
+
+				<div class="form-group">
+					<label for="name">License Plate</label>
+					<input type="text" name="plate" placeholder="License Plate e.g. 34 TAK 51" required value="<?php if($error) echo $plate; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($plate_error)) echo $plate_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Model Year</label>
+					<input type="text" name="year" placeholder="Model Year e.g. 2017" required value="<?php if($error) echo $year; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($year_error)) echo $year_error; ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Manifacturer</label>
+					<input type="text" name="manifacturer" placeholder="Manifacturer e.g. Fiat" required value="<?php if($error) echo $manifacturer; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($manifacturer_error)) echo $manifacturer_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Model</label>
+					<input type="text" name="model" placeholder="Model e.g. Linea" required value="<?php if($error) echo $model; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($model_error)) echo $model_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Station Name</label>
+					<input type="text" name="station" placeholder="Station Name e.g. Çiçek Taksi" required value="<?php if($error) echo $station; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($station_error)) echo $station_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Zipcode</label>
+					<input type="text" name="zipcode" placeholder="Zipcode e.g. 34000" required value="<?php if($error) echo $zipcode; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($zipcode_error)) echo $zipcode_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Street Name</label>
+					<input type="text" name="street" placeholder="Street Name e.g. Akasya" required value="<?php if($error) echo $street; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($street_error)) echo $street_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Building Number</label>
+					<input type="text" name="building" placeholder="Building Number e.g. 2" required value="<?php if($error) echo $building; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($building_error)) echo $building_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Phone Number</label>
+					<input type="text" name="phone" placeholder="Phone Number e.g. 2120000000" required value="<?php if($error) echo $phone; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<input type="submit" name="sendTaxiInfo" value="Send Taxi Information" class="btn btn-default btn-lg" />
+				</div>
+		</form>
+		
+		<span class="text-success"><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
+		<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?php
+session_start();
+
+if(isset($_SESSION['usr_id'])!="") {
+    header("Location: main.php");
+}
+
+include_once 'DBconnect.php';
+
+//check if form is submitted
+if (isset($_POST['login'])) {
+
+    $dbusername = mysqli_real_escape_string($con, $_POST['username']);
+    $dbpassword = mysqli_real_escape_string($con, $_POST['password']);
+    $result = mysqli_query($con, "SELECT * FROM register WHERE username = '$dbusername' AND password = '$dbpassword'");
+    
+    $count = mysqli_num_rows($result);
+    $row = mysqli_fetch_array($result);
+    if ($count == 1) {
+        $user_id = $row['UserID'];
+        $_SESSION['usr_id'] = $user_id;
+
+
+        $_SESSION['usr_name'] = $row['UserName'];
+        $_SESSION['password'] = $row['Password'];
+        header("Location: main.php");
+    } else {
+        $errormsg = "Incorrect Email or Password!!!";
+    }
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/paxistyle.css">
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+      <a class="navbar-brand" href="login.php">
+        <img src="icons/48x48.png" width="30" height="30">
+       </a>
+      </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+    
+        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform">
+
+                    <h3 class="margin">Login</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Username</label>
+                        <input type="text" name="username" placeholder="Your Username" required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Password</label>
+                        <input type="password" name="password" placeholder="Your Password" required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" name="login" value="Login" class="btn btn-default" />
+                    </div>
+
+            </form>
+            <span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+
+    <h5>New User? <a href="register.php">Sign Up Here</a></h5>
+</div>
+
+<!-- Footer -->
+<footer class="footer-fluid bg-2 text-center ">
+
+  <p>Paxi: Sosyal Taksi is a group project of </p>
+  <p>Halil Onur Arslantürk, Tolgahan Vahaplar and Kerem Ürman</p> 
+   
+   <a href="http://www.google.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-globe"></i></a>
+   <a href="http://www.twitter.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-retweet"></i></a>
+   <a href="http://www.gmail.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-envelope"></i></a>
+   
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/paxistyle.css">
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    
+	<div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	  
+	  <a class="navbar-brand" href="main.php">
+		<img src="file:///C:/Users/MS%C4%B0/Desktop/Ders/3-spring/ISE307%20-%20IT%20Analysis/HW7/48x48.png" width="30" height="30">
+	   </a>
+	  </div>
+	
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+	
+		<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
+				
+				<h3 class="margin">Sign Up</h3>
+
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" name="name" placeholder="Enter Your Name e.g Lena" required value="<?php if($error) echo $name; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Surname</label>
+					<input type="text" name="surname" placeholder="Enter Your Surname e.g Oxton" required value="<?php if($error) echo $surname; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($surname_error)) echo $surname_error; ?></span>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Age</label>
+					<input type="number" name="age" placeholder="Enter Your Age e.g 26" required value="<?php if($error) echo $age; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($age_error)) echo $age_error; ?></span>
+				</div>
+				
+				<div class="control-group">
+				  <label class="control-label" for="gender">Gender</label>
+				  <div class="controls">
+					<label class="radio inline" for="gender-0">
+					  <input name="gender" name="gender-0" value="Male" checked="checked" type="radio">
+					  Male
+					</label>
+					<label class="radio inline" for="gender-1">
+					  <input name="gender" name="gender-1" value="Female" type="radio">
+					  Female
+					</label>
+				  </div>
+				</div>
+				
+				<div class="form-group">
+					<label for="name">Email</label>
+					<input type="text" name="email" placeholder="Email e.g email@xxx.com" required value="<?php if($error) echo $email; ?>" class="form-control" />
+					<span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Password</label>
+					<input type="password" name="password" placeholder="Password" required class="form-control" />
+					<span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Confirm Password</label>
+					<input type="password" name="cpassword" placeholder="Confirm Password" required class="form-control" />
+					<span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
+				</div>
+
+				<div class="form-group">
+					<input type="submit" name="signup" value="Sign Up" class="btn btn-default btn-lg" />
+				</div>
+		</form>
+		
+		<span class="text-success"><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
+		<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+
+	<h5>Already Registered? <a href="login.php">Login Here</a></h5>
+</div>
+
+<!-- Footer -->
+<footer class="footer-fluid bg-2 text-center ">
+
+  <p>Paxi: Sosyal Taksi is a group project of </p>
+  <p>Halil Onur Arslantürk, Tolgahan Vahaplar and Kerem Ürman</p> 
+   
+   <a href="http://www.google.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-globe"></i></a>
+   <a href="http://www.twitter.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-retweet"></i></a>
+   <a href="http://www.gmail.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-envelope"></i></a>
+   
+</footer>
+
+</body>
+</html>

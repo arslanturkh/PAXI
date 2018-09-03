@@ -1,0 +1,88 @@
+<?php
+session_start();
+include_once 'dbconnect.php';
+$user_id = $_SESSION['usr_id'];
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Main Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="css/paxistyle.css">
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    
+	<div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	  
+	  <a class="navbar-brand" href="main.php">
+		<img src="icons/48x48.png" width="30" height="30">
+	   </a>
+	  </div>
+	
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="profile.php">Profile</a></li>
+		<li><a href="favorites.php">Favorites</a></li>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+	
+	<h3>Search for a Taxi!</h3>
+	<h5 class="margin">Choose a method below.</h5>
+	
+	<div class="form-group">
+	<a href="search.php" class="btn btn-default btn-lg btn-space">
+	Take a Photo <i class="glyphicon glyphicon-camera"></i></a>
+	</div>
+	
+	<div class="form-group">
+	<a href="search.php" class="btn btn-default btn-lg btn-space">
+	Scan a QR Code <i class="glyphicon glyphicon-qrcode"></i></a>
+	</div>
+	
+	<div class="form-group">
+	<a href="search.php" class="btn btn-default btn-lg btn-space">
+	Enter License Plate <i class="glyphicon glyphicon-font"></i></a>
+	</div>
+	
+</div>
+
+
+<!-- Footer -->
+<footer class="footer-fluid bg-2 text-center ">
+
+  <p>Paxi: Sosyal Taksi is a group project of </p>
+  <p>Halil Onur Arslantürk, Tolgahan Vahaplar and Kerem Ürman</p> 
+   
+   <a href="http://www.google.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-globe"></i></a>
+   <a href="http://www.twitter.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-retweet"></i></a>
+   <a href="http://www.gmail.com" ><i style="margin-right: 5px; color: #000000;" class="glyphicon glyphicon-envelope"></i></a>
+ 
+</footer>
+
+</body>
+</html>
